@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('detail_penjualans', function (Blueprint $table) {
             $table->id();
             $table->foreignId('penjualan_id')->constrained('penjualans');
+            $table->foreignId('produk_id')->constrained('produks');
+            $table->integer('jumlah');
             $table->timestamps();
         });
     }

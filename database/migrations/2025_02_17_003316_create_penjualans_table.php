@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('penjualans', function (Blueprint $table) {
             $table->id();
-            $table->date('tanggal');
-            $table->integer('total_harga');
+            $table->dateTime('tanggal');
+            $table->decimal('total_harga', 10, 2);
+            $table->foreignId('pelanggan_id')->constrained('pelanggans');
             $table->timestamps();
         });
     }
