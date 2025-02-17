@@ -14,7 +14,7 @@ class PelangganController extends Controller
     public function index()
     {
         $customers = Pelanggan::all();
-        return view('customers.index', compact('customers'));
+        return view('pelanggan.index', compact('pelanggan'));
     }
 
     /**
@@ -22,7 +22,7 @@ class PelangganController extends Controller
      */
     public function create()
     {
-        return view('customers.create');
+        return view('pelanggan.create');
     }
 
     /**
@@ -32,7 +32,7 @@ class PelangganController extends Controller
     {
         // Menggunakan data yang sudah divalidasi
         Pelanggan::create($request->validated());  // hanya menggunakan data yang valid
-        return redirect()->route('customers.index');
+        return redirect()->route('pelanggan.index');
     }
 
     /**
@@ -41,7 +41,7 @@ class PelangganController extends Controller
     public function show(Pelanggan $pelanggan)
     {
         // Model binding otomatis
-        return view('customers.show', compact('pelanggan'));
+        return view('pelanggan.show', compact('pelanggan'));
     }
 
     /**
@@ -50,7 +50,7 @@ class PelangganController extends Controller
     public function edit(Pelanggan $pelanggan)
     {
         // Model binding otomatis
-        return view('customers.edit', compact('pelanggan'));
+        return view('pelanggan.edit', compact('pelanggan'));
     }
 
     /**
@@ -60,7 +60,7 @@ class PelangganController extends Controller
     {
         // Menggunakan data yang sudah divalidasi
         $pelanggan->update($request->validated());  // hanya menggunakan data yang valid
-        return redirect()->route('customers.index');
+        return redirect()->route('pelanggan.index');
     }
 
     /**
@@ -70,6 +70,6 @@ class PelangganController extends Controller
     {
         // Menghapus data pelanggan berdasarkan model binding
         $pelanggan->delete();
-        return redirect()->route('customers.index');
+        return redirect()->route('pelanggan.index');
     }
 }

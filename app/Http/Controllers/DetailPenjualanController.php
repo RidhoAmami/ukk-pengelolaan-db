@@ -17,7 +17,7 @@ class DetailPenjualanController extends Controller
     {
         // Mengambil semua detail penjualan dan mengirimkannya ke view
         $detailPenjualan = DetailPenjualan::all();
-        return view('detail_penjualan.index', compact('detailPenjualan'));
+        return view('detail.index', compact('detailPenjualan'));
     }
 
     /**
@@ -28,7 +28,7 @@ class DetailPenjualanController extends Controller
         // Menampilkan form untuk membuat detail penjualan baru
         $penjualan = Penjualan::all(); // Ambil semua data penjualan
         $produk = Produk::all(); // Ambil semua produk yang tersedia
-        return view('detail_penjualan.create', compact('penjualan', 'produk'));
+        return view('detail.create', compact('penjualan', 'produk'));
     }
 
     /**
@@ -47,7 +47,7 @@ class DetailPenjualanController extends Controller
         ]);
 
         // Redirect ke halaman daftar detail penjualan
-        return redirect()->route('detail_penjualan.index');
+        return redirect()->route('detail.index');
     }
 
     /**
@@ -56,7 +56,7 @@ class DetailPenjualanController extends Controller
     public function show(DetailPenjualan $detailPenjualan)
     {
         // Menampilkan detail detail penjualan berdasarkan ID
-        return view('detail_penjualan.show', compact('detailPenjualan'));
+        return view('detail.show', compact('detailPenjualan'));
     }
 
     /**
@@ -67,7 +67,7 @@ class DetailPenjualanController extends Controller
         // Menampilkan form untuk mengedit detail penjualan berdasarkan ID
         $penjualan = Penjualan::all(); // Ambil semua data penjualan
         $produk = Produk::all(); // Ambil semua produk yang tersedia
-        return view('detail_penjualan.edit', compact('detailPenjualan', 'penjualan', 'produk'));
+        return view('detail.edit', compact('detailPenjualan', 'penjualan', 'produk'));
     }
 
     /**
@@ -84,7 +84,7 @@ class DetailPenjualanController extends Controller
         ]);
 
         // Redirect ke halaman daftar detail penjualan
-        return redirect()->route('detail_penjualan.index');
+        return redirect()->route('detail.index');
     }
 
     /**
@@ -96,6 +96,6 @@ class DetailPenjualanController extends Controller
         $detailPenjualan->delete();
 
         // Redirect ke halaman daftar detail penjualan
-        return redirect()->route('detail_penjualan.index');
+        return redirect()->route('detail.index');
     }
 }
